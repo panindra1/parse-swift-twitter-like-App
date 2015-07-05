@@ -38,7 +38,36 @@ class TimelineTableViewController: UITableViewController {
                 let textFields: Array =  loginAlert.textFields!
                 let userNameTxtField : UITextField = textFields[0] as! UITextField
                 let passwordTxtField : UITextField = textFields[1] as! UITextField
+                PFUser.logInWithUsernameInBackground(userNameTxtField.text, password: passwordTxtField.text, block: { (user: PFUser?, error: NSError?) -> Void in
+                    if let use = user  {
+                        println("Login successfull")
+                    }
+                    else {
+                        println("Login Failed")
+                    }
+                })
             }))
+
+            loginAlert.addAction(UIAlertAction(title: "Sign Up", style: UIAlertActionStyle.Default, handler: {
+                alertAction in
+                let textFields: Array =  loginAlert.textFields!
+                let userNameTxtField : UITextField = textFields[0] as! UITextField
+                let passwordTxtField : UITextField = textFields[1] as! UITextField
+
+                var user :PFUser?
+                user?.username = userNameTxtField.text
+                user?.password = passwordTxtField.text
+                user?.signUpInBackgroundWithBlock({ (success : Bool, error : NSError?) -> Void in
+                    if !(error != nil) {
+                        println("sign up successfull")
+                    } else {
+                        let errorString = error!.userInfo
+                        println(errorString)
+                    }
+                })
+            }))
+
+            self.presentViewController(loginAlert, animated: true, completion: nil)
         }
     }
     override func didReceiveMemoryWarning() {
