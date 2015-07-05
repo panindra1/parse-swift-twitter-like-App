@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class TimelineTableViewController: UITableViewController {
 
@@ -19,7 +20,27 @@ class TimelineTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if(PFUser.currentUser() != nil) {
+            var loginAlert = UIAlertController(title: "sign up / login", message: "Please sing up/login", preferredStyle: UIAlertControllerStyle.Alert)
+            loginAlert.addTextFieldWithConfigurationHandler{(textField: UITextField!) in
+                textField.placeholder = "Your username"
+            }
 
+            loginAlert.addTextFieldWithConfigurationHandler{(textField: UITextField!) in
+                textField.placeholder = "Your Password"
+                textField.secureTextEntry = true
+            }
+
+            loginAlert.addAction(UIAlertAction(title: "Login", style: UIAlertActionStyle.Default, handler: {
+                alertAction in
+                let textFields: Array =  loginAlert.textFields!
+                let userNameTxtField : UITextField = textFields[0] as! UITextField
+                let passwordTxtField : UITextField = textFields[1] as! UITextField
+            }))
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

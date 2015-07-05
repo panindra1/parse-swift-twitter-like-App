@@ -213,6 +213,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="charRmaningLabel" destination="bBn-Bg-rmQ" id="o3P-is-fI7"/>
                         <outlet property="tweetTextView" destination="mBe-vL-DMm" id="6Mk-rv-tAI"/>
                     </connections>
                 </viewController>

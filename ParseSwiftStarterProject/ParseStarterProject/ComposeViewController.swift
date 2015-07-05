@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ComposeViewController: UIViewController {
 
@@ -30,7 +31,12 @@ class ComposeViewController: UIViewController {
     }
 
     @IBAction func sendTweet(sender: UIBarButtonItem) {
-        
+        var tweet: PFObject = PFObject(className: "tweets")
+        tweet["content"] = tweetTextView.text
+        tweet["tweeter"] = PFUser.currentUser()
+
+        tweet.saveInBackground()
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
 
