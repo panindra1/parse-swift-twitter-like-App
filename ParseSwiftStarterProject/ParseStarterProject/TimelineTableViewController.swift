@@ -79,7 +79,7 @@ class TimelineTableViewController: UITableViewController {
         }
     }
 
-    func loadData() {
+    @IBAction func loadData() {
         if timeLineData.count > 0 {
             timeLineData.removeAllObjects()
         }

@@ -122,6 +122,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Efy-tQ-Xw6">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="f7M-aI-gTK">
+                            <connections>
+                                <action selector="loadData" destination="by2-vx-0B3" id="cdA-ZM-tff"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hM1-cy-lB4">
                             <connections>
                                 <segue destination="pJK-6A-0ut" kind="show" id="BrB-3C-UnQ"/>

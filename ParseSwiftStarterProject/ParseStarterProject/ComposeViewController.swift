@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ComposeViewController: UIViewController {
+class ComposeViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var tweetTextView: UITextView!
     @IBOutlet weak var charRmaningLabel: UILabel!
@@ -21,7 +21,7 @@ class ComposeViewController: UIViewController {
 //        tweetTextView.layer.backgroundColor = UIColor.blackColor().CGColor
         tweetTextView.layer.borderWidth = 0.5
         tweetTextView.layer.cornerRadius = 5
-
+        tweetTextView.delegate = self
         tweetTextView.becomeFirstResponder()
     }
 
@@ -38,7 +38,15 @@ class ComposeViewController: UIViewController {
         tweet.saveInBackground()
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    
+
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        var newLength : Int = (textView.text as NSString).length + (text as NSString).length - range.length
+        let remainingChars = 140 - newLength
+
+        charRmaningLabel.text = "\(remainingChars)"
+
+        return (newLength > 140) ? false : true
+    }
 
     /*
     // MARK: - Navigation
