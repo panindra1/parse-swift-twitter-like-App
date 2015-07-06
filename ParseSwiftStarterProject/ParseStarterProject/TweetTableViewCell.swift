@@ -9,7 +9,11 @@
 import UIKit
 
 class TweetTableViewCell: UITableViewCell {
+    @IBOutlet weak var userNameLabel: UILabel!
 
+    @IBOutlet weak var twitterTxtView: UITextView!
+    @IBOutlet weak var timestampLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

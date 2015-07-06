@@ -11,12 +11,12 @@
         <scene sceneID="Llj-5W-7BG">
             <objects>
                 <tableViewController id="by2-vx-0B3" customClass="TimelineTableViewController" customModule="ParseStarterProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="22" sectionFooterHeight="22" id="kPW-w5-amc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="116" sectionHeaderHeight="22" sectionFooterHeight="22" id="kPW-w5-amc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="twitterCell" rowHeight="99" id="Au5-ub-KIH" customClass="TweetTableViewCell" customModule="ParseStarterProject" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="twitterCell" rowHeight="116" id="Au5-ub-KIH" customClass="TweetTableViewCell" customModule="ParseStarterProject" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Au5-ub-KIH" id="cIn-Yl-Oav">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -46,15 +46,11 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVD-Xi-bjz">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Default data" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LVD-Xi-bjz">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                                <rect key="frame" x="8" y="36" width="384" height="43"/>
-                                            </variation>
                                         </textView>
                                     </subviews>
                                     <constraints>
@@ -66,6 +62,9 @@
                                         <constraint firstItem="yZF-5y-ddR" firstAttribute="top" secondItem="cIn-Yl-Oav" secondAttribute="topMargin" id="Jpk-Jy-51Y"/>
                                         <constraint firstItem="LVD-Xi-bjz" firstAttribute="top" secondItem="yZF-5y-ddR" secondAttribute="bottom" constant="7.5" id="Vws-3D-31i">
                                             <variation key="widthClass=compact" constant="8" symbolic="YES"/>
+                                        </constraint>
+                                        <constraint firstAttribute="bottomMargin" secondItem="LVD-Xi-bjz" secondAttribute="bottom" constant="11" id="c2n-rH-it8">
+                                            <variation key="widthClass=compact" constant="0.0"/>
                                         </constraint>
                                         <constraint firstItem="vfE-c3-JZe" firstAttribute="baseline" secondItem="yZF-5y-ddR" secondAttribute="baseline" id="cHV-Xo-DaC"/>
                                         <constraint firstItem="vfE-c3-JZe" firstAttribute="firstBaseline" secondItem="yZF-5y-ddR" secondAttribute="firstBaseline" id="gKl-XL-L27"/>
@@ -85,6 +84,7 @@
                                             <exclude reference="Aum-mW-SOb"/>
                                             <exclude reference="F5S-u3-7sh"/>
                                             <exclude reference="Vws-3D-31i"/>
+                                            <exclude reference="c2n-rH-it8"/>
                                             <exclude reference="0mp-eA-hJa"/>
                                             <exclude reference="cHV-Xo-DaC"/>
                                             <exclude reference="gKl-XL-L27"/>
@@ -102,12 +102,18 @@
                                             <include reference="Aum-mW-SOb"/>
                                             <include reference="F5S-u3-7sh"/>
                                             <include reference="Vws-3D-31i"/>
+                                            <include reference="c2n-rH-it8"/>
                                             <include reference="0mp-eA-hJa"/>
                                             <include reference="cHV-Xo-DaC"/>
                                             <include reference="gKl-XL-L27"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="timestampLabel" destination="vfE-c3-JZe" id="SqV-Ol-1AA"/>
+                                    <outlet property="twitterTxtView" destination="LVD-Xi-bjz" id="USa-pB-a8e"/>
+                                    <outlet property="userNameLabel" destination="yZF-5y-ddR" id="JkS-IE-gX6"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

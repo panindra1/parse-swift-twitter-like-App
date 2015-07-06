@@ -18,7 +18,7 @@ class ComposeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        tweetTextView.layer.backgroundColor = UIColor.blackColor().CGColor
+//        tweetTextView.layer.backgroundColor = UIColor.blackColor().CGColor
         tweetTextView.layer.borderWidth = 0.5
         tweetTextView.layer.cornerRadius = 5
 
